@@ -1,1 +1,9 @@
 <h1><%= @category.name %></h1>
+
+<%= link_to 'Add an Item', new_category_item_path(@category) %>
+
+<ul>
+  <% @category.items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<%= render('layouts/errors', :object => @item) %>
+
+<%= form_for [@category, @item] do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<p><%= f.submit %></p>
+<% end %>

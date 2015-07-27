@@ -54,9 +54,9 @@
 
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
     <%= yield %>
   </div>
 

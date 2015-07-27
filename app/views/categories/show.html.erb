@@ -1,9 +1,25 @@
+<%= render('layouts/errors', :object => @vote) %>
 <h1><%= @category.name %></h1>
 
 <%= link_to 'Add an Item', new_category_item_path(@category) %>
 
-<ul>
-  <% @category.items.each do |item| %>
-    <li><%= item.name %></li>
-  <% end %>
-</ul>
+
+<div class="container-fluid">
+  <div class="row">
+    <%= form_for [@category, @vote] do |f| %>
+    <div class="col-md-3 col-md-offset-2">
+      Better Than
+      <br>
+      <%= f.select :voted_up_item_id, options_from_collection_for_select(@category.items, :id, :name),{}, {:size => 20 } %>
+    </div>
+    <div class="col-md-2">
+      <%= f.submit "Vote!" %>
+    </div>
+    <div class="col-md-3">
+      Worse Than
+      <br>
+      <%= f.select :voted_down_item_id, options_from_collection_for_select(@category.items, :id, :name),{}, {:size => 20 } %>
+    </div>
+    <% end %>
+  </div>
+</div>

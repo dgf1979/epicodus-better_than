@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   devise_for :auths
   resources :categories, only: [:show, :index] do
     resources :items
+    resources :votes, only: [:create]
   end
 end

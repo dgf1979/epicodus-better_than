@@ -29,13 +29,15 @@
 
 
             <ul class="nav navbar-nav navbar-right">
-              <li>
+
                 <% if auth_signed_in? %>
-                <%= link_to "Log Out", destroy_auth_session_path, :method => :delete %>
+                  <li><span style="color: white;">Hello, <%= current_auth.email %></span></li> 
+                  <li><%= link_to "Log Out", destroy_auth_session_path, :method => :delete %></li>
                 <% else %>
-                <%= link_to "Log In/Sign Up", new_auth_session_path %>
+                <li><%= link_to "Log In", new_auth_session_path %></li>
+                <li><%= link_to "Sign Up", new_auth_registration_path %></li>
                 <% end %>
-              </li>
+
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

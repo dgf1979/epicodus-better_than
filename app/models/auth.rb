@@ -5,4 +5,11 @@ class Auth < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :user
+
+  after_create :create_and_link_user
+
+  protected
+    def create_and_link_user
+      User.create({ auth_id: self.id })
+    end
 end

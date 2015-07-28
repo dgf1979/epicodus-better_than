@@ -13,7 +13,11 @@
       <%= f.select :voted_up_item_id, options_from_collection_for_select(@category.items, :id, :name),{}, {:size => 20 } %>
     </div>
     <div class="col-md-2">
-      <%= f.submit "Vote!" %>
+      <% if Vote.has_voted_today(current_auth.user, @category) %>
+        <h4>Thanks for your vote - come back tomorrow to vote again!</h4>
+      <% else %>
+        <%= f.submit "Vote!" %>
+      <% end %>
     </div>
     <div class="col-md-3">
       Worse Than

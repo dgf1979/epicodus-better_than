@@ -23,6 +23,6 @@ class VotesController < ApplicationController
   end
 
   def vote_params
-    params.require(:vote).permit(:category_id, :user_id, :voted_up_item_id, :voted_down_item_id).merge(user_id: current_auth.id)
+    params.require(:vote).permit(:category_id, :user_id, :voted_up_item_id, :voted_down_item_id).merge(user_id: current_auth.user.id)
   end
 end

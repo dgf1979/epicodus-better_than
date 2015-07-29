@@ -77,7 +77,7 @@
     </div>
 
   </div>
-  <div class="row">
+  <div class="row start-hidden">
     <%= form_tag(category_votes_path([@category]), action: :create, method: :post, id: 'vote-form') do %>
     voted_up_item_id<%= text_field_tag :voted_up_item_id %>
     voted_down_item_id<%= text_field_tag :voted_down_item_id %>

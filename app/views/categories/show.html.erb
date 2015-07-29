@@ -1,51 +1,87 @@
 
-<h1><%= @category.name %></h1>
-
-<%= link_to 'Add an Item', new_category_item_path(@category) %>
-
-
 <div class="container-fluid">
   <div class="row">
+    <h1 style="text-align: center;">Best: <%= @category.name %></h1>
+    <hr>
+  </div>
 
-    <%= form_tag(category_votes_path([@category]), action: :create, method: :post) do %>
 
-      <div class="col-md-3 col-md-offset-2">
-        Better Than
-        <br>
-        <%= select_tag :voted_up_item_id, options_from_collection_for_select(@category.items, :id, :name), {:size => 20 } %>
-      </div>
-
-      <div class="col-md-2">
-        <% if auth_signed_in? == false %>
-          <h4>Sign up or log in to vote!</h4>
-        <% else %>
-          <%= submit_tag "Vote!" %>
-        <% end %>
-      </div>
-
-      <div class="col-md-3">
-        Worse Than
-        <br>
-        <%= select_tag :voted_down_item_id, options_from_collection_for_select(@category.items, :id, :name), {:size => 20 } %>
-
-        <div class="item-list">
-          <% rank_counter = 0 %>
-          <% @category.item_ranks.each do |rank| %>
-            <% rank_counter += 1 %>
-            <div class="rank-group">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="item-list" id="item-list-better">
+        <% rank_counter = 0 %>
+        <% @category.item_ranks.each do |rank| %>
+          <% rank_counter += 1 %>
+          <% if rank_counter > 1 %>
+            <div class="rank-group" data-rank="<%= rank_counter %>">
               <div class="rank-text">Ranked #<%= rank_counter %></div>
               <% @category.items.where(rank: rank.rank).each do |item| %>
-                <div class="item">
-                  <%= item.name %>
-                </div>
+              <div class="rank-item rank-left" data-id="<%= item.id %>">
+                <%= item.name %>
+              </div>
               <% end %>
             </div>
           <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+
+      <% if auth_signed_in? == false %>
+        <h4>Sign up or log in to vote!</h4>
+      <% else %>
+
+        <div class="center-col" id="left-thing">
+          <h3>
+            <span class="glyphicon glyphicon-hand-left"></span>
+            Which one deserves more props?
+          </h3>
         </div>
 
+        <div class="center-col start-hidden" id="better-than">
+          <h2 style="text-align: center;">IS BETTER THAN:</h2>
+        </div>
+
+        <div class="center-col start-hidden" id="right-thing">
+          <h3 style="text-align: right;">
+            Which one is overrated?
+            <span class="glyphicon glyphicon-hand-right"></span>
+          </h3>
+        </div>
+
+        <div class="center-col start-hidden" id="vote-thing">
+            <h4 style="text-align: center;">CAN YOU DIG IT??</h4>
+            <div class="btn btn-lg btn-block btn-primary" id="vote-button">Cast this vote!</div>
+        </div>
+
+      <% end %>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="item-list" id="item-list-worse">
+        <% rank_counter = 0 %>
+        <% @category.item_ranks.each do |rank| %>
+        <% rank_counter += 1 %>
+        <div class="rank-group" data-rank="<%= rank_counter %>">
+          <div class="rank-text">Ranked #<%= rank_counter %></div>
+          <% @category.items.where(rank: rank.rank).each do |item| %>
+          <div class="rank-item rank-right" data-id="<%= item.id %>">
+            <%= item.name %>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
       </div>
+    </div>
 
+  </div>
+  <div class="row">
+    <%= form_tag(category_votes_path([@category]), action: :create, method: :post, id: 'vote-form') do %>
+    voted_up_item_id<%= text_field_tag :voted_up_item_id %>
+    voted_down_item_id<%= text_field_tag :voted_down_item_id %>
+    <%= submit_tag "Vote!" %>
     <% end %>
-
   </div>
 </div>

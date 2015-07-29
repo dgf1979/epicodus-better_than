@@ -1,8 +1,15 @@
-.item-list {
+.center-col {
   width: 100%;
 }
 
+.item-list {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .item-list .rank-group {
+  position: relative;
   width: 100%;
   background-color: black;
   padding-bottom: 0.5em;
@@ -20,10 +27,19 @@
   padding-left: 0.5em;
 }
 
-.rank-group .item {
+.rank-left {
   margin-left: 1em;
+  text-align: right;
+}
+
+.rank-right {
+  left: -1em;
+}
+
+.rank-group .rank-item {
   padding: 0.1em;
   padding-left: 0.5em;
+  padding-right: 0.5em;
   width: 100%;
   background-color: silver;
   color: black;
@@ -32,10 +48,16 @@
   border-width: 1px;
   border-style: solid;
   border-color: white;
+  position: relative;
 }
 
-.rank-group .item:hover {
+.rank-group .rank-item:hover {
   cursor: pointer;
   font-weight: bold;
   border-color: magenta;
+}
+
+.rank-item.selected {
+  border-color: cyan;
+  font-style: italic;
 }

@@ -3,4 +3,5 @@ class Item < ActiveRecord::Base
   belongs_to :category
   acts_as_votable
   default_scope { order('rank DESC') }
+
 end

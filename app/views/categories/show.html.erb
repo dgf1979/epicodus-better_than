@@ -27,6 +27,22 @@
         Worse Than
         <br>
         <%= select_tag :voted_down_item_id, options_from_collection_for_select(@category.items, :id, :name), {:size => 20 } %>
+
+        <div class="item-list">
+          <% rank_counter = 0 %>
+          <% @category.item_ranks.each do |rank| %>
+            <% rank_counter += 1 %>
+            <div class="rank-group">
+              <div class="rank-text">Ranked #<%= rank_counter %></div>
+              <% @category.items.where(rank: rank.rank).each do |item| %>
+                <div class="item">
+                  <%= item.name %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
       </div>
 
     <% end %>

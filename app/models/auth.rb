@@ -10,6 +10,7 @@ class Auth < ActiveRecord::Base
 
   protected
     def create_and_link_user
-      User.create({ auth_id: self.id })
+      user = User.create({ auth_id: self.id })
+      self.update({ user_id: user.id })
     end
 end

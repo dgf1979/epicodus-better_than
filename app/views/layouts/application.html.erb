@@ -29,9 +29,11 @@
 
 
             <ul class="nav navbar-nav navbar-right">
-
+              <% if auth_signed_in? && current_auth.user.admin %>
+                <li><%= link_to 'Admin Panel', rails_admin_path %></li>
+              <% end %>
                 <% if auth_signed_in? %>
-                  <li><span style="color: white;">Hello, <%= current_auth.email %></span></li> 
+                  <li><span style="color: white;">Hello, <%= current_auth.email %></span></li>
                   <li><%= link_to "Log Out", destroy_auth_session_path, :method => :delete %></li>
                 <% else %>
                 <li><%= link_to "Log In", new_auth_session_path %></li>

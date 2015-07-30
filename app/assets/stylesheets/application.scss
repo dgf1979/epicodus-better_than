@@ -24,7 +24,7 @@ body {
   visibility: hidden;
 }
 
-a.navbar-brand {
+.logo {
   font-size: 3em;
   color: white;
 }
@@ -39,4 +39,18 @@ a.navbar-brand {
 
 .bangtext {
   font-family: 'Alfa Slab One', cursive;
+}
+
+.landing-text h1, h2, h3, h4, h5, h6 {
+  font-family: 'Alfa Slab One', cursive;
+  font-style: italic;
+}
+
+.landing-text p {
+  font-size: 1.2em;
+}
+
+.landing-text {
+  padding-left: 4%;
+  padding-right: 4%;
 }

@@ -27,3 +27,9 @@ movies = ['Mad Max: Fury Road', 'Jurassic World', 'Avengers: Age of Ultron', 'Fu
 movies.each do |movie|
   movie_category.items.create({ name: movie, rank: rand(90..110) })
 end
+
+movie_category = Category.create({ name: "Science Fiction Movie of All Time" })
+movies = ['Mad Max: Fury Road', 'Star Wars: The Empire Strikes Back', 'Alien', 'Aliens', 'Ex Machina', 'Blade Runner', 'Terminator 2', 'Robocop']
+movies.each do |movie|
+  movie_category.items.create({ name: movie, rank: rand(90..110) })
+end

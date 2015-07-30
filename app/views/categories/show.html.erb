@@ -1,4 +1,6 @@
 
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
 <div class="container-fluid">
   <div class="row">
     <h1 style="text-align: center;">Best: <%= @category.name %></h1>
@@ -33,7 +35,10 @@
         <% if current_auth.user.has_voted_today_for(@category) %>
 
           <div id="already-voted">
-            <h1>Thanks for voting!</h1>
+            <h2 style="text-align: center">Thanks for voting!</h2>
+            <h4 style="text-align: center">Be sure to come back tomorrow for another chance to vote!</h4>
+            <br><br>
+            <%= pie_chart @category.item_rank_chartdata, library: {legend: {position: "top", maxLines: 10}} %>
           </div>
 
         <% else %>

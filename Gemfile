@@ -31,6 +31,8 @@ gem 'rails_admin'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'chartkick'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

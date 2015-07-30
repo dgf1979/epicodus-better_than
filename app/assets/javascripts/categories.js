@@ -10,10 +10,14 @@ $(document).ready(function() {
   });
 
   $("div.rank-item.rank-right").click(function() {
-    if (!$(this).hasClass('selected')) {
-      extendItemLeft($(this));
-      selectToggle($(this));
-      updateWorseThan($(this));
+    if ($("#voted_up_item_id").val() === $(this).attr('data-id')) {
+      alert("A thing can't be better than itself. OR CAN IT? \n ... \n (no, it can't.)");
+    } else {
+      if (!$(this).hasClass('selected')) {
+        extendItemLeft($(this));
+        selectToggle($(this));
+        updateWorseThan($(this));
+      }
     }
   });
 
@@ -97,7 +101,7 @@ function hideHigherRanked(item) {
   $("#item-list-worse > .rank-group").each(function(i) {
     var rankGroup = $(this);
     var groupRank = parseInt(rankGroup.attr('data-rank'));
-    if (groupRank >= itemRank) {
+    if (groupRank > itemRank) {
       rankGroup.slideUp("fast");
     } else {
       rankGroup.slideDown("fast");

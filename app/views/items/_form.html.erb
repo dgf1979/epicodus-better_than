@@ -1,7 +1,10 @@
 <%= render('layouts/errors', :object => @item) %>
 
 <%= form_for [@category, @item] do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<p><%= f.submit %></p>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+
+<%= f.submit 'Add', class: "btn btn-primary btn-block" %>
 <% end %>

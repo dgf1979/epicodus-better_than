@@ -35,6 +35,11 @@
             <span class="glyphicon glyphicon-hand-left"></span>
             Which one deserves more props?
           </h3>
+          <div>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-item-modal">
+              Wait - I have one that's better than ALL of these!
+            </button>
+          </div>
         </div>
 
         <div class="center-col start-hidden" id="better-than">
@@ -75,12 +80,26 @@
     </div>
 
   </div>
-  
-  <div class="row">
+
+  <div class="row start-hidden">
     <%= form_tag(category_votes_path([@category]), action: :create, method: :post, id: 'vote-form') do %>
     voted_up_item_id<%= text_field_tag :voted_up_item_id %>
     voted_down_item_id<%= text_field_tag :voted_down_item_id %>
     <%= submit_tag "Vote!" %>
     <% end %>
   </div>
+
+  <div class="modal fade" id="add-item-modal" tabindex="-1" role="dialog" aria-labelledby="addItem">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content modal-padding">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">New Item</h4>
+        </div>
+        <%= render '/items/form' %>
+      </div>
+    </div>
+  </div>
+
+
 </div>

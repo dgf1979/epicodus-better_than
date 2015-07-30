@@ -1,10 +1,10 @@
 /*
- *= require_tree .
- *= require_self
- */
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+*= require_tree .
+*= require_self
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 .nav li a {
   display: inline;
@@ -16,4 +16,13 @@
 
 .start-hidden {
   visibility: hidden;
+}
+
+a.navbar-brand {
+  font-size: 3em;
+  color: white;
+}
+
+.modal-padding {
+  padding: 2em;
 }

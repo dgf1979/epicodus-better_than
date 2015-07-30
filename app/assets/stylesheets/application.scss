@@ -6,6 +6,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import url(http://fonts.googleapis.com/css?family=Alfa+Slab+One);
+
+body {
+  margin-top: 4px;
+}
+
 .nav li a {
   display: inline;
 }
@@ -25,4 +31,12 @@ a.navbar-brand {
 
 .modal-padding {
   padding: 2em;
+}
+
+.navbar-right {
+  padding-right: 1em;
+}
+
+.bangtext {
+  font-family: 'Alfa Slab One', cursive;
 }

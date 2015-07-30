@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <h1 style="text-align: center;">Best: <%= @category.name %></h1>
+    <h1 class="bangtext" style="text-align: center;">Best: <%= @category.name %></h1>
     <hr>
   </div>
 
@@ -30,6 +30,8 @@
 
       <% if auth_signed_in? == false %>
         <h4>Sign up or log in to vote!</h4>
+        <br><br>
+        <%= render 'pie_chart' %>
       <% else %>
 
         <% if current_auth.user.has_voted_today_for(@category) %>
@@ -38,7 +40,7 @@
             <h2 style="text-align: center">Thanks for voting!</h2>
             <h4 style="text-align: center">Be sure to come back tomorrow for another chance to vote!</h4>
             <br><br>
-            <%= pie_chart @category.item_rank_chartdata, library: {legend: {position: "top", maxLines: 10}} %>
+            <%= render 'pie_chart' %>
           </div>
 
         <% else %>

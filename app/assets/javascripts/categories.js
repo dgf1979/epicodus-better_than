@@ -1,4 +1,6 @@
-$(document).ready(function() {
+var ready;
+
+ready = function() {
   console.log("categories.js ready");
 
   $("div.rank-item.rank-left").click(function() {
@@ -25,7 +27,7 @@ $(document).ready(function() {
     $('#vote-form').submit();
   });
 
-});
+};
 
 function updateBetterThan(item) {
   resetWorseThan();
@@ -124,3 +126,6 @@ function scrollUnderSelected(item) {
 
   });
 }
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

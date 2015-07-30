@@ -30,33 +30,43 @@
         <h4>Sign up or log in to vote!</h4>
       <% else %>
 
-        <div class="center-col" id="left-thing">
-          <h3>
-            <span class="glyphicon glyphicon-hand-left"></span>
-            Which one deserves more props?
-          </h3>
-          <div>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-item-modal">
-              Wait - I have one that's better than ALL of these!
-            </button>
+        <% if current_auth.user.has_voted_today_for(@category) %>
+
+          <div id="already-voted">
+            <h1>Thanks for voting!</h1>
           </div>
-        </div>
 
-        <div class="center-col start-hidden" id="better-than">
-          <h2 style="text-align: center;">IS BETTER THAN:</h2>
-        </div>
+        <% else %>
 
-        <div class="center-col start-hidden" id="right-thing">
-          <h3 style="text-align: right;">
-            Which one is overrated?
-            <span class="glyphicon glyphicon-hand-right"></span>
-          </h3>
-        </div>
+          <div class="center-col" id="left-thing">
+            <h3>
+              <span class="glyphicon glyphicon-hand-left"></span>
+              Which one deserves more props?
+            </h3>
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-item-modal">
+                Wait - I have one that's better than ALL of these!
+              </button>
+            </div>
+          </div>
 
-        <div class="center-col start-hidden" id="vote-thing">
-            <h4 style="text-align: center;">CAN YOU DIG IT??</h4>
-            <div class="btn btn-lg btn-block btn-primary" id="vote-button">Cast this vote!</div>
-        </div>
+          <div class="center-col start-hidden" id="better-than">
+            <h2 style="text-align: center;">IS BETTER THAN:</h2>
+          </div>
+
+          <div class="center-col start-hidden" id="right-thing">
+            <h3 style="text-align: right;">
+              Which one is overrated?
+              <span class="glyphicon glyphicon-hand-right"></span>
+            </h3>
+          </div>
+
+          <div class="center-col start-hidden" id="vote-thing">
+              <h4 style="text-align: center;">CAN YOU DIG IT??</h4>
+              <div class="btn btn-lg btn-block btn-primary" id="vote-button">Cast this vote!</div>
+          </div>
+
+        <% end %>
 
       <% end %>
 

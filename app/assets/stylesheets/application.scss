@@ -8,8 +8,26 @@
 
 @import url(http://fonts.googleapis.com/css?family=Alfa+Slab+One);
 
+html {
+  height: 100%
+}
+
 body {
   margin-top: 4px;
+  height: 100%;
+}
+
+.underlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.underlay img {
+  width: 100%;
 }
 
 .nav li a {

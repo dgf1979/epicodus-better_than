@@ -1,12 +1,10 @@
 
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
 <div class="container-fluid">
   <div class="row">
     <h1 class="bangtext" style="text-align: center;">Best: <%= @category.name %></h1>
     <hr>
   </div>
-
 
   <div class="row">
     <div class="col-md-4">
@@ -26,7 +24,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 center-panel">
 
       <% if auth_signed_in? == false %>
         <h4>Sign up or log in to vote!</h4>
@@ -117,6 +115,8 @@
       </div>
     </div>
   </div>
+</div>
 
-
+<div class="underlay">
+  <img src="<%= @category.image_url %>" alt="" />
 </div>

@@ -48,10 +48,12 @@
               <span class="glyphicon glyphicon-hand-left"></span>
               Which one deserves more props?
             </h3>
-            <div>
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add-item-modal">
+            <div class="centered">
+              <br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-item-modal">
                 Wait - I have one that's better than ALL of these!
               </button>
+              <span style='font-style: italic;'>(add another <%= @category.name %>)</span>
             </div>
           </div>
 
@@ -67,8 +69,9 @@
           </div>
 
           <div class="center-col start-hidden" id="vote-thing">
-              <h4 style="text-align: center;">CAN YOU DIG IT??</h4>
-              <div class="btn btn-lg btn-block btn-primary" id="vote-button">Cast this vote!</div>
+            <h4 style="text-align: center;">CAN YOU DIG IT??</h4>
+            <div class="btn btn-lg btn-block btn-primary" id="vote-button">Cast this vote!</div>
+            <br>
           </div>
 
         <% end %>

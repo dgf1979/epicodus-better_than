@@ -8,6 +8,15 @@ RailsAdmin.config do |config|
    end
    config.current_user_method(&:current_auth)
 
+   config.authorize_with do
+     unless current_auth.user.admin?
+       redirect_to(
+       main_app.root_path,
+       alert: "You are not permitted to view this page"
+       )
+     end
+   end
+
   ## == Cancan ==
   # config.authorize_with :cancan
 

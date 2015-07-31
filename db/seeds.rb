@@ -33,3 +33,6 @@ movies = ['Mad Max: Fury Road', 'Star Wars: The Empire Strikes Back', 'Alien', '
 movies.each do |movie|
   movie_category.items.create({ name: movie, rank: rand(90..110) })
 end
+
+default_admin = Auth.create({ email: 'admin@site.com', password: 'password' })
+default_admin.user.update({ admin: true })
